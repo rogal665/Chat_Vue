@@ -1,0 +1,15 @@
+Header set Access-Control-Allow-Origin: "*"
+Header add Access-Control-Allow-Credentials: true
+Header add Access-Control-Max-Age: 86400
+Header add Access-Control-Allow-Methods: "GET,HEAD,OPTIONS,POST,PUT"
+Header add Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept"
+
+SetEnv PHP_VER 5_3
+SetEnv REGISTER_GLOBALS 0
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
